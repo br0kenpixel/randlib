@@ -1,0 +1,21 @@
+[package]
+name = "randlib"
+version = "1.0.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+libc = { version = "0.2.139", optional = true }
+
+[features]
+default = ["posix", "libc"]
+libc = ["dep:libc"]
+posix = []
+
+# docs.rs-specific configuration
+[package.metadata.docs.rs]
+# document all features
+all-features = true
+# defines the configuration attribute `docsrs`
+rustdoc-args = ["--cfg", "docsrs"]
